@@ -1,0 +1,21 @@
+# Secrets — NEVER commit these
+.env
+.env.*
+*.key
+*.pem
+*credentials*
+*secret*
+service-account*.json
+*.tfvars
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+node_modules/
+.cache/
