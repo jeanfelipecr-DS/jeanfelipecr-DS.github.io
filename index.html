@@ -146,10 +146,13 @@
     border:1px solid var(--line); border-radius:18px; padding:30px 30px 28px;
     transition:transform .3s, border-color .3s; overflow:hidden;
   }
-  .card::before{content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--metal); opacity:0; transition:opacity .3s}
+  .card::before{content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--metal); opacity:0; transition:opacity .3s; z-index:4}
   .card:hover{transform:translateY(-4px); border-color:var(--line2)}
   .card:hover::before{opacity:1}
   .card.feat{grid-column:1 / -1; display:grid; grid-template-columns:1fr 1.05fr; gap:34px; align-items:center; padding:34px}
+  .card-media{margin:-30px -30px 22px; aspect-ratio:16/9; overflow:hidden; border-bottom:1px solid var(--line); background:#0c1016}
+  .card-media img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s ease}
+  .card:hover .card-media img{transform:scale(1.035)}
   .card-idx{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--faint); letter-spacing:.1em; margin-bottom:16px; display:flex; align-items:center; gap:10px}
   .card-idx i{display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold)}
   .card h3{font-family:"Fraunces",serif; font-weight:500; font-size:23px; line-height:1.2; letter-spacing:-.01em; margin-bottom:13px}
@@ -282,6 +285,7 @@
       </article>
 
       <article class="card" data-reveal>
+        <div class="card-media"><img src="assets/cover-bi.png" alt="Executive dashboard mockup with KPI cards, achievement-by-area bars and a daily revenue chart" loading="lazy"></div>
         <div class="card-idx"><i></i>02 — Business Intelligence</div>
         <h3>Executive BI Dashboard for a Business School</h3>
         <p>Leadership was steering by dozens of scattered spreadsheets. I built one web dashboard centralizing <span class="gold">50+ KPIs across 6 areas</span>, fed live from the data warehouse, with a status palette that flags what's on/off target at a glance.</p>
@@ -290,6 +294,7 @@
       </article>
 
       <article class="card" data-reveal>
+        <div class="card-media"><img src="assets/cover-funnel.png" alt="Paid-media funnel mockup from impressions to sales with broad vs narrow attribution" loading="lazy"></div>
         <div class="card-idx"><i></i>03 — Marketing Analytics</div>
         <h3>Paid-Media Attribution &amp; Funnel</h3>
         <p>Three systems, three different sales numbers. I built a <span class="gold">9-stage funnel</span> linking Meta Ads to CRM deals by ad-set ID, showing broad vs. narrow attribution side by side — one agreed source of truth, with CPA/ROAS visible per campaign.</p>
@@ -298,6 +303,7 @@
       </article>
 
       <article class="card" data-reveal>
+        <div class="card-media"><img src="assets/cover-kanban.png" alt="Sales kanban TV board mockup tracking reps against pro-rated targets with traffic-light status" loading="lazy"></div>
         <div class="card-idx"><i></i>04 — Data Visualization</div>
         <h3>Real-Time Sales Kanban (TV)</h3>
         <p>No shared, live view of the sales day. A TV dashboard tracking reps <span class="gold">hour-by-hour</span> against pro-rated targets, turning red/orange/green as each slot elapses. Single self-contained HTML file — double-click, no server.</p>
@@ -306,6 +312,7 @@
       </article>
 
       <article class="card" data-reveal>
+        <div class="card-media"><img src="assets/cover-ml.png" alt="Cost-per-lead prediction model comparison chart with Ridge as the best model" loading="lazy"></div>
         <div class="card-idx"><i></i>05 — Machine Learning</div>
         <h3>Cost-per-Lead Prediction (study)</h3>
         <p>An end-to-end study forecasting CPL from campaign data — feature engineering, cross-validation, model comparison. The lesson: on a small dataset, <span class="gold">regularized linear regression beat the boosting models</span>. Next: lead scoring via CRM join.</p>
