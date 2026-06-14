@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jean Felipe Carneiro — Data Analyst & BI Engineer</title>
-<meta name="description" content="Jean Felipe Carneiro — Data Analyst & BI Engineer. I build the full data chain: cloud pipelines, BigQuery warehouses and executive dashboards that turn raw data into decisions.">
+<meta name="description" content="Jean Felipe Carneiro — Data Analyst & BI Engineer. I build the full data chain: cloud pipelines, BigQuery warehouses and executive dashboards. PT/EN.">
+<script>(function(){try{var q=(location.search.match(/[?&]lang=(pt|en)/i)||[])[1];var s=q||localStorage.getItem('jfc_lang')||((navigator.language||'en').toLowerCase().indexOf('pt')===0?'pt':'en');document.documentElement.setAttribute('data-lang',s);document.documentElement.setAttribute('lang',s);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,6 +26,10 @@
     font-family:"Hanken Grotesk",sans-serif; font-size:17px; line-height:1.6;
     -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
+  /* ---------- i18n ---------- */
+  html[data-lang="en"] .t-pt{display:none}
+  html[data-lang="pt"] .t-en{display:none}
+
   /* ---------- background atmosphere ---------- */
   .bg-grid{
     position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.5;
@@ -64,11 +69,18 @@
   .brand .dot{width:26px; height:26px; border-radius:7px; background:var(--metal);
     display:grid; place-items:center; color:#0A0D12; font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:12px}
   .brand b{font-weight:600; font-size:15px; letter-spacing:.01em}
+  .navright{display:flex; align-items:center; gap:24px}
   .navlinks{display:flex; gap:26px}
   .navlinks a{color:var(--muted); font-size:13.5px; transition:color .2s; position:relative}
   .navlinks a:hover{color:var(--text)}
   .navlinks a::after{content:""; position:absolute; left:0; bottom:-5px; height:1px; width:0; background:var(--gold); transition:width .25s}
   .navlinks a:hover::after{width:100%}
+  .langtog{display:inline-flex; border:1px solid var(--line2); border-radius:999px; overflow:hidden}
+  .langtog button{background:transparent; border:0; color:var(--muted); font-family:"IBM Plex Mono",monospace;
+    font-size:11px; letter-spacing:.08em; padding:6px 12px; cursor:pointer; transition:.2s}
+  .langtog button:hover{color:var(--text)}
+  html[data-lang="pt"] .langtog button[data-l="pt"],
+  html[data-lang="en"] .langtog button[data-l="en"]{background:var(--metal); color:#0A0D12; font-weight:600}
   @media(max-width:720px){.navlinks{display:none}}
 
   /* ---------- hero ---------- */
@@ -107,11 +119,6 @@
   .portrait::before{content:""; position:absolute; top:0; left:0; right:0; height:2px; background:var(--metal); z-index:3; opacity:.9}
   .portrait::after{content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(180deg,transparent 48%,rgba(10,13,18,.62))}
   .portrait img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 18%}
-  .portrait .ph{display:none}
-  .portrait.noimg{aspect-ratio:4/5}
-  .portrait.noimg .ph{display:flex; position:absolute; inset:0; z-index:2; flex-direction:column; gap:9px; align-items:center; justify-content:center; text-align:center}
-  .portrait.noimg .ph span{font-family:"Fraunces",serif; font-size:60px; line-height:1}
-  .portrait.noimg .ph small{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint)}
   .portrait-cap{color:var(--faint); padding-left:3px; font-size:11.5px}
   @media(max-width:860px){
     .hero-inner{grid-template-columns:1fr; gap:38px}
@@ -132,11 +139,11 @@
   .about-lead{font-family:"Fraunces",serif; font-size:clamp(22px,3vw,30px); line-height:1.4; font-weight:400; letter-spacing:-.01em}
   .about-lead em{font-style:italic; color:var(--gold)}
   .about-body{color:var(--muted); margin-top:24px; font-size:16px}
-  .about-body p+p{margin-top:16px}
+  .about-body p+p,.about-body span.t-pt p+p{margin-top:16px}
   .facts{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line)}
   .fact{display:flex; justify-content:space-between; gap:16px; padding:15px 0; border-bottom:1px solid var(--line)}
   .fact span:first-child{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase}
-  .fact span:last-child{color:var(--text); text-align:right; font-size:15px}
+  .fact .fv{color:var(--text); text-align:right; font-size:15px}
   @media(max-width:820px){.about-grid{grid-template-columns:1fr; gap:40px}}
 
   /* ---------- work ---------- */
@@ -205,11 +212,17 @@
 
 <nav>
   <a class="brand" href="#top"><span class="dot">J</span><b>Jean&nbsp;Felipe&nbsp;Carneiro</b></a>
-  <div class="navlinks">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#stack">Stack</a>
-    <a href="#contact">Contact</a>
+  <div class="navright">
+    <div class="navlinks">
+      <a href="#about"><span class="t-en">About</span><span class="t-pt">Sobre</span></a>
+      <a href="#work"><span class="t-en">Work</span><span class="t-pt">Projetos</span></a>
+      <a href="#stack">Stack</a>
+      <a href="#contact"><span class="t-en">Contact</span><span class="t-pt">Contato</span></a>
+    </div>
+    <div class="langtog" role="group" aria-label="Language">
+      <button type="button" data-l="pt" onclick="setLang('pt')">PT</button>
+      <button type="button" data-l="en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -218,23 +231,28 @@
     <div class="stg">
       <div class="hero-eyebrow">
         <span class="bar"><i></i><i></i><i></i></span>
-        <span class="mono">Data Analyst &nbsp;·&nbsp; BI Engineer &nbsp;·&nbsp; Brazil / Remote</span>
+        <span class="mono"><span class="t-en">Data Analyst &nbsp;·&nbsp; BI Engineer &nbsp;·&nbsp; Brazil / Remote</span><span class="t-pt">Analista de Dados &nbsp;·&nbsp; Eng. de BI &nbsp;·&nbsp; Brasil / Remoto</span></span>
       </div>
-      <h1>I turn <span class="bronze">raw data</span> into <span class="metal-text">decisions</span>.</h1>
-      <p class="hero-sub">I build the <b>full data chain</b> — from cloud pipelines and BigQuery warehouses to executive dashboards that leadership actually uses.</p>
+      <h1>
+        <span class="t-en">I turn <span class="bronze">raw data</span> into <span class="metal-text">decisions</span>.</span>
+        <span class="t-pt">Transformo <span class="bronze">dados brutos</span> em <span class="metal-text">decisões</span>.</span>
+      </h1>
+      <p class="hero-sub">
+        <span class="t-en">I build the <b>full data chain</b> — from cloud pipelines and BigQuery warehouses to executive dashboards that leadership actually uses.</span>
+        <span class="t-pt">Construo a <b>cadeia completa de dados</b> — de pipelines na nuvem e data warehouses no BigQuery a dashboards executivos que a liderança realmente usa.</span>
+      </p>
       <div class="cta">
-        <a class="btn btn-primary" href="#work">View work
+        <a class="btn btn-primary" href="#work"><span class="t-en">View work</span><span class="t-pt">Ver projetos</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="https://github.com/jeanfelipecr-DS" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/jean-felipe-b7b3b5197/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="mailto:jeanfelipecr@gmail.com">Email</a>
-        <span class="status"><span class="pulse"></span> Available for freelance &amp; consulting</span>
+        <span class="status"><span class="pulse"></span><span class="t-en">Available for freelance &amp; consulting</span><span class="t-pt">Disponível para freelance e consultoria</span></span>
       </div>
     </div>
     <div class="portrait-wrap" data-reveal>
       <div class="portrait">
-        <img src="assets/jean.jpg" alt="Portrait of Jean Felipe Carneiro" onerror="this.style.display='none';this.parentElement.classList.add('noimg')">
-        <div class="ph"><span class="metal-text">JFC</span><small>add assets/jean.jpg</small></div>
+        <img src="assets/jean.jpg" alt="Jean Felipe Carneiro">
       </div>
       <span class="portrait-cap mono">Coronel Fabriciano, BR</span>
     </div>
@@ -244,22 +262,31 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">/01</span><span class="sec-title">About</span><span class="sec-rule"></span>
+      <span class="sec-num">/01</span><span class="sec-title"><span class="t-en">About</span><span class="t-pt">Sobre</span></span><span class="sec-rule"></span>
     </div>
     <div class="about-grid">
       <div data-reveal>
-        <p class="about-lead">I'm a data analyst and BI engineer working across the entire chain — <em>ingestion to insight</em>. I design the warehouse, build the pipelines, and ship the dashboards that turn scattered numbers into decisions.</p>
+        <p class="about-lead">
+          <span class="t-en">I'm a data analyst and BI engineer working across the entire chain — <em>ingestion to insight</em>. I design the warehouse, build the pipelines, and ship the dashboards that turn scattered numbers into decisions.</span>
+          <span class="t-pt">Sou analista de dados e engenheiro de BI atuando na cadeia inteira — <em>da ingestão ao insight</em>. Projeto o data warehouse, construo os pipelines e entrego os dashboards que transformam números espalhados em decisões.</span>
+        </p>
         <div class="about-body">
-          <p>Computer Engineering (2022), Data Science training (2025), and Power BI certified. Before moving into data, I led a team and implemented ERP systems (Cigam &amp; Nomus) in a manufacturing company — an end-to-end view of process, system and data.</p>
-          <p>Today I work in-house at a business school, owning the data stack from cloud ingestion to the executive dashboards used by the board, consultants and managers. I'm heading toward <strong style="color:var(--text);font-weight:500">full-stack in data</strong>: engineering → science → analysis → product.</p>
+          <span class="t-en">
+            <p>Computer Engineering (2022), Data Science training (2025), and Power BI certified. Before moving into data, I led a team and implemented ERP systems (Cigam &amp; Nomus) in a manufacturing company — an end-to-end view of process, system and data.</p>
+            <p>Today I work in-house at a business school, owning the data stack from cloud ingestion to the executive dashboards used by the board, consultants and managers. I'm heading toward <strong style="color:var(--text);font-weight:500">full-stack in data</strong>: engineering → science → analysis → product.</p>
+          </span>
+          <span class="t-pt">
+            <p>Engenheiro da Computação (2022), com formação em Ciência de Dados (2025) e certificação em Power BI. Antes da virada para dados, liderei equipe e implementei sistemas ERP (Cigam e Nomus) numa indústria — uma visão de processo, sistema e dado de ponta a ponta.</p>
+            <p>Hoje atuo numa escola de negócios, dono da stack de dados — da ingestão na nuvem aos dashboards executivos usados pela diretoria, consultores e gestores. Caminho para ser <strong style="color:var(--text);font-weight:500">full-stack em dados</strong>: engenharia → ciência → análise → produto.</p>
+          </span>
         </div>
       </div>
       <div class="facts" data-reveal>
-        <div class="fact"><span>Role</span><span>Data Analyst · BI Engineer</span></div>
-        <div class="fact"><span>Base</span><span>Coronel Fabriciano, BR · Remote</span></div>
-        <div class="fact"><span>Core</span><span>BigQuery · Python · SQL · GCP</span></div>
-        <div class="fact"><span>Focus</span><span>Pipelines &amp; dashboards</span></div>
-        <div class="fact"><span>Status</span><span>Open to freelance</span></div>
+        <div class="fact"><span><span class="t-en">Role</span><span class="t-pt">Função</span></span><span class="fv"><span class="t-en">Data Analyst · BI Engineer</span><span class="t-pt">Analista de Dados · Eng. de BI</span></span></div>
+        <div class="fact"><span><span class="t-en">Base</span><span class="t-pt">Local</span></span><span class="fv"><span class="t-en">Coronel Fabriciano, BR · Remote</span><span class="t-pt">Coronel Fabriciano, BR · Remoto</span></span></div>
+        <div class="fact"><span>Stack</span><span class="fv">BigQuery · Python · SQL · GCP</span></div>
+        <div class="fact"><span><span class="t-en">Focus</span><span class="t-pt">Foco</span></span><span class="fv"><span class="t-en">Pipelines &amp; dashboards</span><span class="t-pt">Pipelines e dashboards</span></span></div>
+        <div class="fact"><span>Status</span><span class="fv"><span class="t-en">Open to freelance</span><span class="t-pt">Aberto a freelance</span></span></div>
       </div>
     </div>
   </div>
@@ -268,54 +295,69 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">/02</span><span class="sec-title">Selected work</span><span class="sec-rule"></span>
+      <span class="sec-num">/02</span><span class="sec-title"><span class="t-en">Selected work</span><span class="t-pt">Projetos selecionados</span></span><span class="sec-rule"></span>
     </div>
     <div class="work-grid">
 
       <article class="card feat" data-reveal>
         <div>
-          <div class="card-idx"><i></i>01 — Data Engineering</div>
-          <h3>Cloud Data Architecture &amp; Daily ETL Pipeline</h3>
-          <p>A layered BigQuery warehouse — <span class="gold">raw → silver → gold</span>, 8 datasets — and the pipeline that feeds it. A scheduled Cloud Run job ingests Meta Ads, CRM and marketing data every day, using a staging + MERGE pattern with retries and rate-limit handling. The gold layer serves governed views, including ad-spend → closed-deal attribution.</p>
+          <div class="card-idx"><i></i>01 — <span class="t-en">Data Engineering</span><span class="t-pt">Engenharia de Dados</span></div>
+          <h3><span class="t-en">Cloud Data Architecture &amp; Daily ETL Pipeline</span><span class="t-pt">Arquitetura de Dados na Nuvem e Pipeline de ETL Diário</span></h3>
+          <p>
+            <span class="t-en">A layered BigQuery warehouse — <span class="gold">raw → silver → gold</span>, 8 datasets — and the pipeline that feeds it. A scheduled Cloud Run job ingests Meta Ads, CRM and marketing data every day, using a staging + MERGE pattern with retries and rate-limit handling. The gold layer serves governed views, including ad-spend → closed-deal attribution.</span>
+            <span class="t-pt">Um data warehouse em camadas no BigQuery — <span class="gold">raw → silver → gold</span>, 8 datasets — e o pipeline que o alimenta. Um job agendado no Cloud Run ingere Meta Ads, CRM e marketing todos os dias, com padrão staging + MERGE, retries e tratamento de rate limit. A camada gold serve views governadas, incluindo atribuição de investimento → venda.</span>
+          </p>
           <div class="tags">
             <span class="tag">BigQuery</span><span class="tag">Cloud Run</span><span class="tag">ETL</span><span class="tag">SQL</span><span class="tag">Cloud Scheduler</span><span class="tag">Python</span>
           </div>
         </div>
-        <div class="feat-media"><img src="assets/arquitetura-dados.png" alt="Cloud data architecture diagram: sources to ingestion to BigQuery (raw, silver, gold) to dashboards" loading="lazy"></div>
+        <div class="feat-media"><img src="assets/arquitetura-dados.png" alt="Cloud data architecture diagram" loading="lazy"></div>
       </article>
 
       <article class="card" data-reveal>
-        <div class="card-media"><img src="assets/cover-bi.png" alt="Executive dashboard mockup with KPI cards, achievement-by-area bars and a daily revenue chart" loading="lazy"></div>
+        <div class="card-media"><img src="assets/cover-bi.png" alt="Executive dashboard mockup" loading="lazy"></div>
         <div class="card-idx"><i></i>02 — Business Intelligence</div>
-        <h3>Executive BI Dashboard for a Business School</h3>
-        <p>Leadership was steering by dozens of scattered spreadsheets. I built one web dashboard centralizing <span class="gold">50+ KPIs across 6 areas</span>, fed live from the data warehouse, with a status palette that flags what's on/off target at a glance.</p>
+        <h3><span class="t-en">Executive BI Dashboard for a Business School</span><span class="t-pt">Dashboard Executivo de BI para uma Escola de Negócios</span></h3>
+        <p>
+          <span class="t-en">Leadership was steering by dozens of scattered spreadsheets. I built one web dashboard centralizing <span class="gold">50+ KPIs across 6 areas</span>, fed live from the data warehouse, with a status palette that flags what's on/off target at a glance.</span>
+          <span class="t-pt">A liderança decidia com dezenas de planilhas espalhadas. Construí um único dashboard web centralizando <span class="gold">50+ KPIs em 6 áreas</span>, alimentado ao vivo pelo data warehouse, com paleta de status que sinaliza num relance o que está dentro/fora da meta.</span>
+        </p>
         <div class="tags"><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Chart.js</span><span class="tag">Data Viz</span></div>
-        <div class="anon">Images use anonymized demo data</div>
+        <div class="anon"><span class="t-en">Images use anonymized demo data</span><span class="t-pt">Imagens com dados fictícios</span></div>
       </article>
 
       <article class="card" data-reveal>
-        <div class="card-media"><img src="assets/cover-funnel.png" alt="Paid-media funnel mockup from impressions to sales with broad vs narrow attribution" loading="lazy"></div>
+        <div class="card-media"><img src="assets/cover-funnel.png" alt="Paid-media funnel mockup" loading="lazy"></div>
         <div class="card-idx"><i></i>03 — Marketing Analytics</div>
-        <h3>Paid-Media Attribution &amp; Funnel</h3>
-        <p>Three systems, three different sales numbers. I built a <span class="gold">9-stage funnel</span> linking Meta Ads to CRM deals by ad-set ID, showing broad vs. narrow attribution side by side — one agreed source of truth, with CPA/ROAS visible per campaign.</p>
+        <h3><span class="t-en">Paid-Media Attribution &amp; Funnel</span><span class="t-pt">Mídia Paga: Atribuição e Funil</span></h3>
+        <p>
+          <span class="t-en">Three systems, three different sales numbers. I built a <span class="gold">9-stage funnel</span> linking Meta Ads to CRM deals by ad-set ID, showing broad vs. narrow attribution side by side — one agreed source of truth, with CPA/ROAS visible per campaign.</span>
+          <span class="t-pt">Três sistemas, três números de vendas diferentes. Construí um <span class="gold">funil de 9 etapas</span> ligando Meta Ads às vendas do CRM por ID de conjunto, mostrando atribuição ampla vs. estrita lado a lado — uma fonte única, com CPA/ROAS por campanha.</span>
+        </p>
         <div class="tags"><span class="tag">Meta Ads API</span><span class="tag">Attribution</span><span class="tag">BigQuery</span><span class="tag">CPA / ROAS</span></div>
-        <div class="anon">Images use anonymized demo data</div>
+        <div class="anon"><span class="t-en">Images use anonymized demo data</span><span class="t-pt">Imagens com dados fictícios</span></div>
       </article>
 
       <article class="card" data-reveal>
-        <div class="card-media"><img src="assets/cover-kanban.png" alt="Sales kanban TV board mockup tracking reps against pro-rated targets with traffic-light status" loading="lazy"></div>
-        <div class="card-idx"><i></i>04 — Data Visualization</div>
-        <h3>Real-Time Sales Kanban (TV)</h3>
-        <p>No shared, live view of the sales day. A TV dashboard tracking reps <span class="gold">hour-by-hour</span> against pro-rated targets, turning red/orange/green as each slot elapses. Single self-contained HTML file — double-click, no server.</p>
+        <div class="card-media"><img src="assets/cover-kanban.png" alt="Sales kanban TV board mockup" loading="lazy"></div>
+        <div class="card-idx"><i></i>04 — <span class="t-en">Data Visualization</span><span class="t-pt">Visualização de Dados</span></div>
+        <h3><span class="t-en">Real-Time Sales Kanban (TV)</span><span class="t-pt">Kanban Comercial em Tempo Real (TV)</span></h3>
+        <p>
+          <span class="t-en">No shared, live view of the sales day. A TV dashboard tracking reps <span class="gold">hour-by-hour</span> against pro-rated targets, turning red/orange/green as each slot elapses. Single self-contained HTML file — double-click, no server.</span>
+          <span class="t-pt">Sem visão compartilhada e ao vivo do dia. Um painel de TV acompanhando o time <span class="gold">hora a hora</span> contra metas proporcionais, ficando vermelho/laranja/verde conforme cada faixa decorre. Um único HTML autocontido — clique duplo, sem servidor.</span>
+        </p>
         <div class="tags"><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">Real-time</span><span class="tag">Data Viz</span></div>
-        <div class="anon">Images use anonymized demo data</div>
+        <div class="anon"><span class="t-en">Images use anonymized demo data</span><span class="t-pt">Imagens com dados fictícios</span></div>
       </article>
 
       <article class="card" data-reveal>
-        <div class="card-media"><img src="assets/cover-ml.png" alt="Cost-per-lead prediction model comparison chart with Ridge as the best model" loading="lazy"></div>
+        <div class="card-media"><img src="assets/cover-ml.png" alt="Cost-per-lead model comparison chart" loading="lazy"></div>
         <div class="card-idx"><i></i>05 — Machine Learning</div>
-        <h3>Cost-per-Lead Prediction (study)</h3>
-        <p>An end-to-end study forecasting CPL from campaign data — feature engineering, cross-validation, model comparison. The lesson: on a small dataset, <span class="gold">regularized linear regression beat the boosting models</span>. Next: lead scoring via CRM join.</p>
+        <h3><span class="t-en">Cost-per-Lead Prediction (study)</span><span class="t-pt">Previsão de Custo por Lead (estudo)</span></h3>
+        <p>
+          <span class="t-en">An end-to-end study forecasting CPL from campaign data — feature engineering, cross-validation, model comparison. The lesson: on a small dataset, <span class="gold">regularized linear regression beat the boosting models</span>. Next: lead scoring via CRM join.</span>
+          <span class="t-pt">Estudo de ponta a ponta prevendo o CPL a partir de dados de campanha — feature engineering, validação cruzada, comparação de modelos. A lição: com poucos dados, a <span class="gold">regressão linear regularizada venceu os modelos de boosting</span>. Próximo: lead scoring com join no CRM.</span>
+        </p>
         <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">LightGBM</span><span class="tag">XGBoost</span></div>
       </article>
 
@@ -326,23 +368,23 @@
 <section id="stack">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">/03</span><span class="sec-title">Stack &amp; skills</span><span class="sec-rule"></span>
+      <span class="sec-num">/03</span><span class="sec-title"><span class="t-en">Stack &amp; skills</span><span class="t-pt">Stack e competências</span></span><span class="sec-rule"></span>
     </div>
     <div class="stack-grid" data-reveal>
       <div class="stack-col">
-        <h4>Data Engineering</h4>
-        <ul><li>BigQuery</li><li>SQL</li><li>ETL · staging + MERGE</li><li>Cloud Run</li><li>Cloud Scheduler</li><li>Data modeling</li></ul>
+        <h4><span class="t-en">Data Engineering</span><span class="t-pt">Engenharia de Dados</span></h4>
+        <ul><li>BigQuery</li><li>SQL</li><li>ETL · staging + MERGE</li><li>Cloud Run</li><li>Cloud Scheduler</li><li><span class="t-en">Data modeling</span><span class="t-pt">Modelagem de dados</span></li></ul>
       </div>
       <div class="stack-col">
-        <h4>Analytics &amp; ML</h4>
-        <ul><li>Python</li><li>pandas · NumPy</li><li>scikit-learn</li><li>LightGBM · XGBoost</li><li>CPA / ROAS / LTV</li><li>Attribution</li></ul>
+        <h4><span class="t-en">Analytics &amp; ML</span><span class="t-pt">Análise e ML</span></h4>
+        <ul><li>Python</li><li>pandas · NumPy</li><li>scikit-learn</li><li>LightGBM · XGBoost</li><li>CPA / ROAS / LTV</li><li><span class="t-en">Attribution</span><span class="t-pt">Atribuição</span></li></ul>
       </div>
       <div class="stack-col">
-        <h4>Visualization</h4>
-        <ul><li>Executive dashboards</li><li>Chart.js</li><li>Power BI</li><li>HTML / CSS / JS</li><li>Data storytelling</li><li>KPI design</li></ul>
+        <h4><span class="t-en">Visualization</span><span class="t-pt">Visualização</span></h4>
+        <ul><li><span class="t-en">Executive dashboards</span><span class="t-pt">Dashboards executivos</span></li><li>Chart.js</li><li>Power BI</li><li>HTML / CSS / JS</li><li>Data storytelling</li><li><span class="t-en">KPI design</span><span class="t-pt">Design de KPIs</span></li></ul>
       </div>
       <div class="stack-col">
-        <h4>Platforms</h4>
+        <h4><span class="t-en">Platforms</span><span class="t-pt">Plataformas</span></h4>
         <ul><li>Google Cloud</li><li>Meta Ads API</li><li>RD Station</li><li>Google Sheets API</li><li>Git</li><li>Secret Manager</li></ul>
       </div>
     </div>
@@ -351,9 +393,15 @@
 
 <section class="contact" id="contact">
   <div class="wrap" data-reveal>
-    <span class="mono">/04 — Contact</span>
-    <h2>Let's turn your data<br>into <em>decisions</em>.</h2>
-    <p>Open to freelance projects and data consulting — pipelines, BigQuery, dashboards and analytics.</p>
+    <span class="mono">/04 — <span class="t-en">Contact</span><span class="t-pt">Contato</span></span>
+    <h2>
+      <span class="t-en">Let's turn your data<br>into <em>decisions</em>.</span>
+      <span class="t-pt">Vamos transformar seus dados<br>em <em>decisões</em>.</span>
+    </h2>
+    <p>
+      <span class="t-en">Open to freelance projects and data consulting — pipelines, BigQuery, dashboards and analytics.</span>
+      <span class="t-pt">Aberto a projetos freelance e consultoria de dados — pipelines, BigQuery, dashboards e análises.</span>
+    </p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:jeanfelipecr@gmail.com">jeanfelipecr@gmail.com</a>
       <a class="btn btn-ghost" href="https://github.com/jeanfelipecr-DS" target="_blank" rel="noopener">GitHub</a>
@@ -366,13 +414,14 @@
 <footer>
   <div class="wrap">
     <span class="metal-bar"><i></i><i></i><i></i></span>
-    <span>© <span id="yr"></span> Jean Felipe Carneiro · Data Analyst &amp; BI Engineer</span>
+    <span>© <span id="yr"></span> Jean Felipe Carneiro · <span class="t-en">Data Analyst &amp; BI Engineer</span><span class="t-pt">Analista de Dados e Eng. de BI</span></span>
     <span class="mono" style="color:var(--faint)">raw → silver → gold</span>
   </div>
 </footer>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  function setLang(l){document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('lang',l);try{localStorage.setItem('jfc_lang',l)}catch(e){}}
   const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
 </script>
