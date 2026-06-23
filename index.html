@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jean Felipe Carneiro — Data Analyst & BI Engineer</title>
-<meta name="description" content="Jean Felipe Carneiro — Data Analyst & BI Engineer. I build the full data chain: cloud pipelines, BigQuery warehouses and executive dashboards. PT/EN.">
+<meta name="description" content="Jean Felipe Carneiro — Data Analyst & BI Engineer. I build the full data chain: custom systems, cloud pipelines, BigQuery warehouses and executive dashboards. PT/EN.">
 <script>(function(){try{var q=(location.search.match(/[?&]lang=(pt|en)/i)||[])[1];var s=q||localStorage.getItem('jfc_lang')||'en';document.documentElement.setAttribute('data-lang',s);document.documentElement.setAttribute('lang',s);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,7 +174,7 @@
   @media(max-width:820px){.work-grid{grid-template-columns:1fr} .card.feat{grid-template-columns:1fr}}
 
   /* ---------- stack ---------- */
-  .stack-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+  .stack-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:20px}
   .stack-col h4{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--line)}
   .stack-col ul{list-style:none}
   .stack-col li{padding:7px 0; color:var(--muted); font-size:14.5px; display:flex; gap:9px; align-items:baseline}
@@ -240,8 +240,8 @@
         <span class="t-pt">Transformo <span class="bronze">dados brutos</span> em <span class="metal-text">decisões</span>.</span>
       </h1>
       <p class="hero-sub">
-        <span class="t-en">I build the <b>full data chain</b> — from cloud pipelines and BigQuery warehouses to executive dashboards that leadership actually uses.</span>
-        <span class="t-pt">Construo a <b>cadeia completa de dados</b> — de pipelines na nuvem e data warehouses no BigQuery a dashboards executivos que a liderança realmente usa.</span>
+        <span class="t-en">I build the <b>full data chain</b> — from the operational systems and cloud pipelines that produce the data, through BigQuery, to executive dashboards that leadership actually uses.</span>
+        <span class="t-pt">Construo a <b>cadeia completa de dados</b> — dos sistemas operacionais e pipelines na nuvem que produzem o dado, passando pelo BigQuery, aos dashboards executivos que a liderança realmente usa.</span>
       </p>
       <div class="cta">
         <a class="btn btn-primary" href="#work"><span class="t-en">View work</span><span class="t-pt">Ver projetos</span>
@@ -277,11 +277,11 @@
         <div class="about-body">
           <span class="t-en">
             <p>Computer Engineering (2022), Data Science training (2025), and Power BI certified. Before moving into data, I led a team and implemented ERP systems (Cigam &amp; Nomus) in a manufacturing company — an end-to-end view of process, system and data.</p>
-            <p>Today I work in-house at a business school, owning the data stack from cloud ingestion to the executive dashboards used by the board, consultants and managers. I'm heading toward <strong style="color:var(--text);font-weight:500">full-stack in data</strong>: engineering → science → analysis → product.</p>
+            <p>Today I work in-house at a business school, owning the data stack from cloud ingestion to the executive dashboards used by the board, consultants and managers. I'm heading toward <strong style="color:var(--text);font-weight:500">full-stack in data</strong>: engineering → science → analysis → product — including the custom systems that generate the data in the first place.</p>
           </span>
           <span class="t-pt">
             <p>Engenheiro da Computação (2022), com formação em Ciência de Dados (2025) e certificação em Power BI. Antes da virada para dados, liderei equipe e implementei sistemas ERP (Cigam e Nomus) numa indústria — uma visão de processo, sistema e dado de ponta a ponta.</p>
-            <p>Hoje atuo numa escola de negócios, dono da stack de dados — da ingestão na nuvem aos dashboards executivos usados pela diretoria, consultores e gestores. Caminho para ser <strong style="color:var(--text);font-weight:500">full-stack em dados</strong>: engenharia → ciência → análise → produto.</p>
+            <p>Hoje atuo numa escola de negócios, dono da stack de dados — da ingestão na nuvem aos dashboards executivos usados pela diretoria, consultores e gestores. Caminho para ser <strong style="color:var(--text);font-weight:500">full-stack em dados</strong>: engenharia → ciência → análise → produto — incluindo os sistemas sob medida que geram o dado na origem.</p>
           </span>
         </div>
       </div>
@@ -365,6 +365,16 @@
         <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">LightGBM</span><span class="tag">XGBoost</span></div>
       </article>
 
+      <article class="card" data-reveal>
+        <div class="card-idx"><i></i>06 — <span class="t-en">Product / Full-Stack</span><span class="t-pt">Produto / Full-Stack</span></div>
+        <h3><span class="t-en">Custom Management Systems for Small Businesses</span><span class="t-pt">Sistemas de Gestão sob medida para Pequenos Negócios</span></h3>
+        <p>
+          <span class="t-en">Many small businesses run on notebooks and spreadsheets — there's no data to analyze in the first place. I build the system that <span class="gold">generates</span> it: a multi-tenant SaaS (work orders, inventory, finance, dashboard) with per-client isolation via Postgres RLS, and an analytics layer on top. The system becomes the source of truth; the data work builds on it.</span>
+          <span class="t-pt">Muito pequeno negócio roda no caderno e na planilha — não há dado pra analisar. Construo o sistema que <span class="gold">gera</span> esse dado: um SaaS multi-tenant (ordens de serviço, estoque, financeiro, painel) com isolamento por cliente via RLS no Postgres, e uma camada de análise em cima. O sistema vira a fonte; o trabalho de dados entra depois.</span>
+        </p>
+        <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">RLS</span><span class="tag">Multi-tenant</span></div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -390,6 +400,10 @@
       <div class="stack-col">
         <h4><span class="t-en">Platforms</span><span class="t-pt">Plataformas</span></h4>
         <ul><li>Google Cloud</li><li>Meta Ads API</li><li>RD Station</li><li>Google Sheets API</li><li>Git</li><li>Secret Manager</li></ul>
+      </div>
+      <div class="stack-col">
+        <h4><span class="t-en">Product / Full-Stack</span><span class="t-pt">Produto / Full-Stack</span></h4>
+        <ul><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL · RLS</li><li><span class="t-en">Multi-tenant SaaS</span><span class="t-pt">SaaS multi-tenant</span></li><li>Tailwind</li></ul>
       </div>
     </div>
   </div>
