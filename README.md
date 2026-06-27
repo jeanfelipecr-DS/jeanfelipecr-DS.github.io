@@ -1,6 +1,6 @@
 # jeanfelipecr-DS.github.io
 
-Portfólio pessoal do **Jean Felipe Carneiro** — Analista de Dados & BI.
+Portfólio pessoal - **Jean Felipe Carneiro** — Analista de Dados & BI.
 
 🔗 **No ar:** https://jeanfelipecr-ds.github.io
 
