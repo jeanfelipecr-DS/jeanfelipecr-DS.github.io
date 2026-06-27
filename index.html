@@ -169,6 +169,10 @@
     border:1px solid var(--line2); border-radius:999px; padding:5px 11px; background:rgba(255,255,255,.02)}
   .anon{margin-top:16px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint)}
   .anon::before{content:"\25C6 "; color:var(--bronze)}
+  .card-demo{display:inline-flex; align-items:center; gap:8px; margin-top:16px; color:var(--gold);
+    font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:500; letter-spacing:.03em;
+    border:1px solid rgba(230,180,80,.42); border-radius:9px; padding:9px 14px; transition:background .2s, border-color .2s, transform .2s}
+  .card-demo:hover{background:rgba(230,180,80,.10); border-color:var(--gold); transform:translateY(-1px)}
   .feat-media{border:1px solid var(--line); border-radius:13px; overflow:hidden; background:#0c1016}
   .feat-media img{width:100%; display:block}
   @media(max-width:820px){.work-grid{grid-template-columns:1fr} .card.feat{grid-template-columns:1fr}}
@@ -351,6 +355,7 @@
           <span class="t-pt">Sem visão compartilhada e ao vivo do dia. Um painel de TV acompanhando o time <span class="gold">hora a hora</span> contra metas proporcionais, ficando vermelho/laranja/verde conforme cada faixa decorre. Um único HTML autocontido — clique duplo, sem servidor.</span>
         </p>
         <div class="tags"><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">Real-time</span><span class="tag">Data Viz</span></div>
+        <a class="card-demo" href="demos/sales-kanban/" target="_blank" rel="noopener"><span class="t-en">▶ Live demo</span><span class="t-pt">▶ Ver demo ao vivo</span></a>
         <div class="anon"><span class="t-en">Images use anonymized demo data</span><span class="t-pt">Imagens com dados fictícios</span></div>
       </article>
 
