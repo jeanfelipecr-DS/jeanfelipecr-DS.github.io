@@ -17,7 +17,7 @@ Página única estática (HTML/CSS/JS, sem build). Atuo na cadeia completa de da
 
 <br>
 
-Personal portfolio of **Jean Felipe Carneiro** — Data Analyst & BI Engineer.
+Personal portfolio - **Jean Felipe Carneiro** — Data Analyst & BI Engineer.
 
 🔗 **Live:** https://jeanfelipecr-ds.github.io
 
