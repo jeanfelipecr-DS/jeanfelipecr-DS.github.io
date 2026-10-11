@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marca — JEAN · Fundação dos Dados</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #050505; font-family: var(--jfc-fonte); color: var(--jfc-texto); }
+  .folha { display: grid; grid-template-columns: repeat(6, 1fr); max-width: 1920px; margin: 0 auto; }
+  .p { position: relative; min-height: 420px; border-right: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; display: grid; place-items: center; padding: 40px 40px 90px; }
+  .escuro { background: radial-gradient(ellipse at 30% 45%, #15130F 0%, #0B0A09 55%, #050505 100%); }
+  .claro { background: #F7F5F0; color: var(--jfc-preto); }
+  .s4 { grid-column: span 4; } .s2 { grid-column: span 2; }
+  .p img { max-width: 100%; display: block; }
+  .rot { position: absolute; left: 40px; bottom: 30px; }
+  .rot b { display: block; font-size: 14px; font-weight: 600; letter-spacing: var(--jfc-espaco-rotulo); }
+  .rot span { display: block; font-size: 14px; opacity: .72; margin-top: 6px; }
+  .cores { display: flex; gap: 22px; flex-wrap: wrap; }
+  .cor i { display: block; width: 150px; height: 104px; border-radius: 10px; border: 1px solid #2a2a2a; }
+  .cor b { display: block; font-size: 14px; font-weight: 600; margin-top: 14px; }
+  .cor span { font-size: 13px; color: var(--jfc-texto-suave); }
+  .icones { display: flex; align-items: flex-end; gap: 28px; }
+  @media (max-width: 900px) { .folha { grid-template-columns: 1fr; } .s4, .s2 { grid-column: auto; } }
+</style>
+</head>
+<body>
+<main class="folha">
+  <section class="p s4" style="background:#050505;padding:0 0 90px"><img src="logo-principal.svg" alt="Logo principal JEAN · Fundação dos Dados" style="width:100%">
+    <div class="rot"><b>LOGO PRINCIPAL</b><span>Símbolo + wordmark + assinatura + serviço</span></div></section>
+  <section class="p escuro s2"><img src="simbolo-construcao.svg" alt="Símbolo com construção" style="height:440px">
+    <div class="rot"><b>SÍMBOLO</b><span>Versão isolada</span></div></section>
+
+  <section class="p claro s2"><img src="logo-claro.svg" alt="Logo em fundo claro" style="width:380px">
+    <div class="rot"><b>VERSÃO EM FUNDO CLARO</b><span>Aplicação principal</span></div></section>
+  <section class="p claro s2"><img src="logo-mono-preto.svg" alt="Logo monocromático" style="width:380px">
+    <div class="rot"><b>VERSÃO MONOCROMÁTICA</b><span>Uso institucional e em uma cor</span></div></section>
+  <section class="p escuro s2"><img src="logo-escuro.svg" alt="Logo em fundo escuro" style="width:380px">
+    <div class="rot"><b>VERSÃO EM FUNDO ESCURO</b><span>Aplicação em fundos escuros</span></div></section>
+
+  <section class="p escuro s2"><div class="icones">
+      <img src="icone.svg" alt="Ícone de app" width="180"><img src="icone.svg" alt="" width="64"><img src="favicon.svg" alt="" width="32"><img src="favicon.svg" alt="" width="16"></div>
+    <div class="rot"><b>APLICAÇÃO DIGITAL</b><span>Ícone de app / favicon</span></div></section>
+  <section class="p escuro s4"><div class="cores">
+      <div class="cor"><i style="background:#0A0A0A"></i><b>#0A0A0A</b><span>Preto profundo</span></div>
+      <div class="cor"><i style="background:#1E1E1E"></i><b>#1E1E1E</b><span>Grafite</span></div>
+      <div class="cor"><i style="background:#D4AF37"></i><b>#D4AF37</b><span>Dourado premium</span></div>
+      <div class="cor"><i style="background:#EDE7DA"></i><b>#EDE7DA</b><span>Areia clara</span></div>
+      <div class="cor"><i style="background:#FAFAF8"></i><b>#FAFAF8</b><span>Branco</span></div></div>
+    <div class="rot"><b>PALETA DE CORES</b><span>Montserrat · ouro em faces · status só para metas</span></div></section>
+</main>
+</body>
+</html>

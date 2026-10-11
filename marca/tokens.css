@@ -1,0 +1,44 @@
+/*
+  JEAN · Fundação dos Dados — tokens da marca (fonte única)
+  Gerado por marca/_fonte/gerar_marca.py — edite lá, não aqui.
+
+  Uso:  <link rel="stylesheet" href="https://jeanfelipecr-ds.github.io/marca/tokens.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  Regra: verde/laranja/vermelho só para estado ou meta (período encerrado); o dourado é MARCA,
+  nunca status; azul nunca representa atingimento.
+*/
+:root {
+  /* paleta do board */
+  --jfc-preto: #0A0A0A;
+  --jfc-grafite: #1E1E1E;
+  --jfc-ouro: #D4AF37;
+  --jfc-areia: #EDE7DA;
+  --jfc-branco: #FAFAF8;
+
+  /* ouro em faces (o metal do símbolo) */
+  --jfc-ouro-reflexo: #F8D99D;
+  --jfc-ouro-claro: #F2CC85;
+  --jfc-ouro-medio: #BF8A45;
+  --jfc-ouro-sombra: #875925;
+  --jfc-ouro-vinco: #4A3116;
+  --jfc-ouro-metal: linear-gradient(135deg, #F8D99D 0%, #E2B062 35%, #BF8A45 70%, #875925 100%);
+
+  /* superfícies e texto em fundo escuro */
+  --jfc-fundo: #0A0A0A;
+  --jfc-superficie: #121110;
+  --jfc-linha: #2A2620;
+  --jfc-texto: #EDE7DA;
+  --jfc-texto-forte: #FAFAF8;
+  --jfc-texto-suave: #A9A397;
+
+  /* tipografia: uma família só */
+  --jfc-fonte: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --jfc-espaco-titulo: .26em;   /* caixa alta espaçada, como o "FUNDAÇÃO DOS DADOS" */
+  --jfc-espaco-rotulo: .2em;
+
+  /* status — só para estado/meta */
+  --jfc-ok: #16A34A;
+  --jfc-atencao: #F97316;
+  --jfc-alerta: #EF4444;
+}
