@@ -98,6 +98,48 @@ def simbolo_ouro(sufixo=""):
 </g>"""
 
 
+def simbolo_animado():
+    """O símbolo sendo construído: as linhas de construção se desenham e as camadas sobem da base
+    para o topo (camada de baixo → braço → haste → gema). É o único movimento do site: mostra a
+    "fundação que vira decisão" em vez de decorar. Respeita prefers-reduced-motion (aparece pronto).
+    Cada peça leva a própria espessura e o próprio bisel para poder entrar sozinha."""
+    p = PECAS
+    grad_c, corpo_c = construcao()
+    corpo_c = corpo_c.replace("<line ", '<line class="linha" pathLength="1" ').replace("<circle ", '<circle class="linha" pathLength="1" ')
+    bisel = 'fill="none" stroke="#FFE6B2" stroke-linecap="round"'
+    pecas = [
+        ("p1", f'<path d="{p["v_esq"]}" fill="url(#f-v-esq)"/><path d="{p["v_dir"]}" fill="url(#f-v-dir)"/>'
+               '<g fill="url(#f-espessura)" opacity=".75"><path d="M0 634.6 L243 795 L243 802 L0 641.6 Z"/><path d="M243 795 L536 601.6 L536 608.6 L243 802 Z"/></g>'
+               f'<g {bisel}><path d="M243 707 L536 513.6" stroke-width="3.5" opacity=".95"/><path d="M0 546.6 L243 707" stroke-width="2.5" opacity=".55"/><path d="M243 709 L243 795" stroke-width="3" opacity=".8"/></g>'),
+        ("p2", f'<path d="{p["braco"]}" fill="url(#f-braco)"/>'
+               '<path d="M0 465.6 L241 624.7 L241 630.7 L0 471.6 Z" fill="url(#f-espessura)" opacity=".75"/>'
+               f'<g {bisel}><path d="M81.1 418.1 L241 523.7" stroke-width="3" opacity=".85"/><path d="M0 471.6 L81.1 418.1" stroke-width="2.5" opacity=".7"/></g>'),
+        ("p3", f'<path d="{p["j"]}" fill="url(#f-j)"/>'
+               '<path d="M245 624.7 L536 432.6 L536 438.6 L245 630.7 Z" fill="url(#f-espessura)" opacity=".75"/>'
+               f'<g {bisel}><path d="M420 77 L536 0" stroke-width="3.5"/><path d="M536 0 L536 430" stroke-width="2" opacity=".5"/>'
+               '<path d="M420 79 L420 408" stroke-width="2" opacity=".28"/><path d="M245 523.7 L420 408.2" stroke-width="2.5" opacity=".5"/><path d="M245 525 L245 624" stroke-width="2" opacity=".55"/></g>'),
+        ("p4", f'<path d="{p["gema"]}" fill="url(#f-gema)"/>'
+               '<path d="M140 327.5 L268 412 L360 351.3 L360 345.3 L268 406 L140 321.5 Z" fill="url(#f-espessura)" opacity=".75"/>'
+               f'<g {bisel}><path d="M140 327.5 L360 160" stroke-width="3.5"/><path d="M360 162 L360 345" stroke-width="1.5" opacity=".4"/></g>'),
+    ]
+    # Estado normal = símbolo PRONTO. A animação parte do invisível só enquanto roda ("both"): se o
+    # navegador não animar (ou animar SVG dentro de <img> de outro jeito), o símbolo aparece inteiro.
+    estilo = """<style>
+  .linha { animation: desenhar 1.4s cubic-bezier(.4,0,.2,1) both; stroke-dasharray: 1; }
+  .peca { animation: subir .75s cubic-bezier(.2,.7,.2,1) both; }
+  .p1 { animation-delay: .9s } .p2 { animation-delay: 1.15s } .p3 { animation-delay: 1.4s } .p4 { animation-delay: 1.75s }
+  .luz { animation: acender .9s ease-out 2.2s both; }
+  @keyframes desenhar { from { stroke-dashoffset: 1 } to { stroke-dashoffset: 0 } }
+  @keyframes subir { from { opacity: 0; transform: translateY(46px) } to { opacity: 1; transform: none } }
+  @keyframes acender { from { opacity: 0 } to { opacity: 1 } }
+  @media (prefers-reduced-motion: reduce) { .linha, .peca, .luz { animation: none; } }
+</style>"""
+    luz = ('<g class="luz" style="mix-blend-mode:screen"><ellipse cx="520" cy="18" rx="110" ry="80" fill="url(#brilho)"/>'
+           '<ellipse cx="170" cy="318" rx="80" ry="55" fill="url(#brilho)" opacity=".65"/></g>')
+    corpo = corpo_c + "".join(f'<g class="peca {c}" filter="url(#sombra)">{g}</g>' for c, g in pecas) + luz
+    return grad_c, estilo, corpo
+
+
 def simbolo_ouro_simples():
     """Ouro em faces SEM filtros (favicon e tamanhos pequenos: sombra e textura viram borrão)."""
     p = PECAS
@@ -273,6 +315,8 @@ def gerar():
     arquivos["simbolo-mono-preto.svg"] = svg(CAIXA_PLANA, simbolo_mono(PRETO))
     arquivos["simbolo-mono-branco.svg"] = svg(CAIXA_PLANA, simbolo_mono(BRANCO))
     arquivos["simbolo-construcao.svg"] = svg("-300 -210 1060 1100", corpo_c + simbolo_ouro(), DEFS_OURO + grad_c)
+    grad_a, estilo_a, corpo_a = simbolo_animado()
+    arquivos["simbolo-animado.svg"] = svg("-300 -210 1060 1100", estilo_a + corpo_a, DEFS_OURO + grad_a)
 
     # logo principal (o do board): fundo escuro, construção, wordmark, divisória e lema
     s = 0.4795  # escala do símbolo no logo principal (origem do símbolo em 248, 208)
